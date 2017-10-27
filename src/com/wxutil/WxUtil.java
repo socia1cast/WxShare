@@ -8,8 +8,8 @@ public class WxUtil extends ApplicationEvent {
 	private static int times = 0;
 	
 	public WxUtil(Object source) {  
-        super(source);  
-    } 
+        	super(source);  
+    	} 
 	public static Map<String, String> getSign(String url){  
 		JsApiTicket ticketJson = (JsApiTicket) ServletContextUtil.get().getAttribute("JSAPI_TICKET");
 		if (null != ticketJson) {
@@ -19,16 +19,16 @@ public class WxUtil extends ApplicationEvent {
 			AccessTokenUtil.initAndSetAccessToken();
 			return getSign(url);
 		}
-        return null;
-    }
+        	return null;
+    	}
 	
 	private static Map<String, String> result(String ticket, String url){
 		Map<String, String> ret = Sign.sign(ticket, url);
-        System.out.println("计算出的签名-----------------------");  
-        for (Map.Entry entry : ret.entrySet()) {  
-            System.out.println(entry.getKey() + ", " + entry.getValue());  
-        }  
-        System.out.println ("-----------------------");  
-        return ret;
+		System.out.println("计算出的签名-----------------------");  
+		for (Map.Entry entry : ret.entrySet()) {  
+		    System.out.println(entry.getKey() + ", " + entry.getValue());  
+		}  
+		System.out.println ("-----------------------");  
+		return ret;
 	}
 }
